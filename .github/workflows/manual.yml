@@ -1,0 +1,20 @@
+name: Manual
+# event (turn on the workflow on manual trigger)
+on:
+  workflow_dispatch:
+    inputs:
+      # input parameter name
+      greeting:
+        # data type
+        type: string
+        default: Hello
+        # required flag
+        required: true
+        # parameter description
+        description: A cheerful word
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ inputs.greeting }}"
