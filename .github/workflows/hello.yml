@@ -1,0 +1,17 @@
+# workflow name
+name: Hello
+# event (turn on the workflow on push)
+on: push
+# declare a job
+jobs:
+  # job id
+  hello:
+    # runner (use the latest ubuntu image)
+    runs-on: ubuntu-latest
+    # declare the steps to run
+    steps:
+      # shell command to run
+      - run: echo "Hello, World"
+      # call action
+      - uses: actions/checkout@v4
+      
