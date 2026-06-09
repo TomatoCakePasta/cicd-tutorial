@@ -1,7 +1,9 @@
 name: Run name
 # select workflow name
 run-name: Run by @${{ github.actor }}
-on: push
+# on: push
+on:
+  workflow_dispatch:
 jobs:
   print:
     runs-on: ubuntu-latest

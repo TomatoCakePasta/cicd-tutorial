@@ -1,0 +1,10 @@
+name: Missing share data
+on: push
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      # try to share data between steps with environment variables
+      - run: export RESULT="hello"
+      # this will not work, because environment variables are not shared between steps
+      - run: echo "${RESULT}"
