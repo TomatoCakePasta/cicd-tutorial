@@ -1,0 +1,11 @@
+name: Naming
+on: push
+jobs:
+  print:
+    # select job name  
+    name: Super Useful Job
+    runs-on: ubuntu-latest
+    steps:
+      # select step name
+      - name: Amazing Script
+        run: echo "Hello"
