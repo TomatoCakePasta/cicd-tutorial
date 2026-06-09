@@ -1,7 +1,9 @@
 # workflow name
 name: Hello
 # event (turn on the workflow on push)
-on: push
+# on: push
+on:
+  workflow_dispatch:
 # declare a job
 jobs:
   # job id
