@@ -1,0 +1,12 @@
+name: Generate functions
+on: push
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: printenv | grep '_FUNC'
+        env:
+          # format
+          FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hi', 'world') }}
+          # join with comma
+          JOIN_FUNC: ${{ join(github.event.*.html_url, ', ') }}
