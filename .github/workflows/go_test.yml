@@ -4,16 +4,16 @@ on:
   pull_request:
     # but only if the changed files are in the go directory and have a .go
     paths: ['go/**/.go']
-  jobs:
-    test:
-      runs-on: ubuntu-latest
-      steps:
-        # checkout
-        # step1. get source code of the repository
-        - uses: actions/checkout@v4
-        # step2. setup language
-        - uses: actions/setup-go@v5
-          with:
-            go-version: '1.22'
-        # step3. run tests
-        - run: go test go/excellent/*.go
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout
+      # step1. get source code of the repository
+      - uses: actions/checkout@v4
+      # step2. setup language
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      # step3. run tests
+      - run: go test go/excellent/*.go
