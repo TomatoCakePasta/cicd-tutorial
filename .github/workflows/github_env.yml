@@ -1,5 +1,7 @@
 name: GITHUB_ENV
-on: push
+# on: push
+on:
+  workflow_dispatch:
 jobs:
   share:
     runs-on: ubuntu-latest

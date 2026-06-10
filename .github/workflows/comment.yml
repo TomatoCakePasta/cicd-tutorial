@@ -1,0 +1,16 @@
+name: Comment
+on: pull_request
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    # select the permissions for the GITHUB_TOKEN
+    permissions:
+      # permissions for the GITHUB_TOKEN to write comments on pull requests
+      pull-requests: write
+      # permissions for the GITHUB_TOKEN to read the source code
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
