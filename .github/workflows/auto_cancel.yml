@@ -1,0 +1,11 @@
+name: Auto cancel
+on: pull_request
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # if same group workflow is running, cancel it and run the new one
+  cancel-in-progress: true
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 120
