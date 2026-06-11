@@ -1,0 +1,9 @@
+name: Concurrency
+on: push
+# this workflow is used to test the concurrency feature of GitHub Actions
+concurrency: ${{ github.workflow }}
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 120

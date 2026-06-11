@@ -1,5 +1,7 @@
 name: Change shell
-on: push
+# on: push
+on: 
+  workflow_dispatch:
 jobs:
   print:
     runs-on: ubuntu-latest
