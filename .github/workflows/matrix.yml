@@ -1,0 +1,15 @@
+name: Matrix
+on: push
+jobs:
+  print:
+    strategy:
+      # declare matrix
+      matrix:
+        # <property-name>: [<value-1>, <value-2>, ...]
+        # declare OS property
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    # reference OS property
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: echo "${ RUNNER_OS }"
+        shell: bash
