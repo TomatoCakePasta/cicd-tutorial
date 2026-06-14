@@ -6,5 +6,5 @@ jobs:
     steps:
       - run: | # start log group
           echo "::group::Show environment variables"
-          prinenv
+          printenv
           echo "::endgroup::"
