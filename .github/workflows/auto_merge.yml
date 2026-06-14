@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v4
       # merge by GitHub CLI
       # get source branch name from GITHUB_HEAD_REF
-      - run: gh pr merge "${GITHUB_HEAD_REF}" --merge
+      - run: gh pr merge "${GITHUB_HEAD_REF}" --merge --auto
