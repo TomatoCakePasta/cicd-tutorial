@@ -1,0 +1,18 @@
+name: Dump
+on: push
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout before calling local action
+      - uses: actions/checkout@v4
+      # call local action
+      - uses: ./.github/actions/dump/
+        id: dump
+        with:
+          # specify inputs parameter
+          eneble-context: 'true'
+      - run: echo "${DATE}"
+        env:
+          # refference action ouput value
+          DATE: ${{ steps.dump.outputs.dumped-date }}
