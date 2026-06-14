@@ -1,0 +1,24 @@
+name: Share job data
+on: push
+jobs:
+  before:
+    runs-on: ubuntu-latest
+    steps:
+      # set id
+      - id: generate
+        # write value of step level to GITHUB_OUTPUT
+        run: echo "result=Hello" >> "${GITHUB_OUTPUT}"
+    # set value of job level via steps context
+    outputs:
+      # <output-name>: ${{ steps.<step-id>.outputs.<key> }}
+      result: ${{ steps.generate.outputs.result }}
+  after:
+    runs-on: ubuntu-latest
+    # specify the ID of dependent Job
+    needs: [before]
+    steps:
+      - env:
+          # reference value of dependent job
+          # ${{ needs.<job-id>.outputs..<output-name> }}
+          RESULT: ${{ needs.before.outputs.result }}
+        run: echo "${RESULT}"
