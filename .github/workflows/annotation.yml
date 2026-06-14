@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "::error::This is an error"
-      - run: echo "::waring::This is a wargin"
+      - run: echo "::warning::This is a wargin"
       - run: echo "::notice::This is a notice"
