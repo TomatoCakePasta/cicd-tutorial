@@ -1,0 +1,22 @@
+name: Environments
+on:
+  workflow_dispatch:
+    inputs:
+      environment-name:
+        type: environment
+        default: test
+        required: false
+        description: Enbironment name
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    # set Environments
+    environment: ${{ inputs.environment-name }}
+    env:
+      # refference Environment variables
+      USERNAME: ${{ vars.USERNAME }}
+      # refference Environment secrets
+      PASSWORD: ${{ secrets.PASSWORD }}
+    steps:
+      - run: echo "${USERNAME}"
+      - run: echo "${PASSWORD:0:1} ${PASSWORD#?}"
