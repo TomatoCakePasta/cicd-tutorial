@@ -4,16 +4,21 @@ description: |
   環境変数とgithubコンテキストをログへ出力します。
   ワークフローのデバッグに便利です。
 inputs:
+  # inputs ID
   enable-context:
+    # inputs default value
     default: 'true'
     required: false
     description: コンテキストをログ出力するか
 outputs:
+  # outputs ID
   dumped-date:
+    # outputs value
     value: ${{ steps.current.outputs.date }}
     description: ダンプ日時
 runs:
   # implemention method of action
+  # Composite Action
   using: composite
   # main logic of action
   steps:
