@@ -7,6 +7,8 @@ jobs:
     steps:
       # output Markdown text to job summary
       - run: |
-          echo "## Example Title :rocket:" >> "${GITHUB_STEP_SUMMARY}"
-          echo "- fisrt line" >> "${GITHUB_STEP_SUMMARY}"
-          echo "- second line" >> "${GITHUB_STEP_SUMMARY}"
+          {
+            echo "## Example Title :rocket:";
+            echo "- first line";
+            echo "- second line";
+          } >> "${GITHUB_STEP_SUMMARY}"

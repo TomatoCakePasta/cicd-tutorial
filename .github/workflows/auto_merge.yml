@@ -1,0 +1,17 @@
+name: Auto merge
+on: pull_request
+jobs:
+  merge:
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      # credential of GitHub CLI
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      # merge by GitHub CLI
+      # get source branch name from GITHUB_HEAD_REF
+      - run: gh pr merge "${GITHUB_HEAD_REF}" --merge --auto

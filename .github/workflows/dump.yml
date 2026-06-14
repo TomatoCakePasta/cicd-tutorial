@@ -12,7 +12,7 @@ jobs:
         id: dump
         with:
           # specify inputs parameter
-          eneble-context: 'true'
+          enable-context: 'true'
       - run: echo "${DATE}"
         env:
           # refference action ouput value
