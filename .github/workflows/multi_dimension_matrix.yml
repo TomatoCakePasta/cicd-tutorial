@@ -1,0 +1,19 @@
+name: Multi-dimension matrix
+on: push
+jobs:
+  print:
+    strategy:
+      # declare multi-dimension matrix
+      matrix:
+        # declare OS property
+        os: [ubuntu-latest, macos-latest]
+        # declare version property
+        version: [18, 20]
+    # reference OS property
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          # reference version property
+          node-version: ${{ matrix.version }}
+      - run: echo "${RUNNER_OS}" && node --version
