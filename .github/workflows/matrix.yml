@@ -11,5 +11,5 @@ jobs:
     # reference OS property
     runs-on: ${{ matrix.os }}
     steps:
-      - run: echo "${ RUNNER_OS }"
+      - run: echo "${RUNNER_OS}"
         shell: bash
