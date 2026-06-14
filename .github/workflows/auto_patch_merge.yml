@@ -2,7 +2,7 @@ name: Auto patch merge
 on: pull_request
 jobs:
   merge:
-    if: ${{ github.actor = 'dependant[bot]' }}
+    if: ${{ github.actor == 'dependant[bot]' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
