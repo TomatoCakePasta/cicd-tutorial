@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    # deployment directory of package manifest
+    directory: /
+    # version up schedule
+    schedule:
+      interval: daily
