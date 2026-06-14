@@ -9,6 +9,6 @@ jobs:
       - run: printenv | grep 'LITERAL_'
         env:
           LITERAL_NULL: ${{ null }}
-          LITERAL_BOOOLEAN: ${{ true }}
+          LITERAL_BOOLEAN: ${{ true }}
           LITERAL_STRING: ${{ 'HELO' }}
           LITERAL_OMIT_STRING: World
