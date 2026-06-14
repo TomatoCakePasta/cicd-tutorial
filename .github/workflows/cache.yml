@@ -1,0 +1,23 @@
+name: Cache
+on: push
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        # Cache restoration and saving
+        with:
+          # Cache key
+          # use different cache key for each OS
+          # reccomendation: including OS name in key
+          key: test-${{ runner.os }}-${{ github.sha }}
+          # cache target path
+          path: ${{ github.workspace }}/dummy
+          restore-keys:
+            test-${{ runner.os }}-
+      - run: |
+          if [[ -f "${GITHUB_WORKSPCE}/dummy" ]]; then exit 0; fi
+          dd if=/dev/urandom of="${GITHUB_WORKSPACE}/dummy" bs=1M count=10
+          sleep 30
+      - run: ls -lh "${GITHUB_WORKSPACE}/dummy"
