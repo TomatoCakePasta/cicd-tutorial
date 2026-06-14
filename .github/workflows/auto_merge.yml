@@ -11,6 +11,7 @@ jobs:
       # credential of GitHub CLI
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      # clone repository
       - uses: actions/checkout@v4
       # merge by GitHub CLI
       # get source branch name from GITHUB_HEAD_REF
