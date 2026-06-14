@@ -13,7 +13,7 @@ jobs:
     # reference OS property
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           # reference version property
           node-version: ${{ matrix.version }}
