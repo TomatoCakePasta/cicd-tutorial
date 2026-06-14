@@ -1,0 +1,42 @@
+name: Publish
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: true
+        description: 1.2.3
+env:
+  # container image name
+  IMAGE_NAME: gha-image
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      # permission for writing to GitHub Pa ckcages
+      packages: write
+      # permission for checking out source code
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      # login to container registry
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      # generate meta data of container image
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=semver,pattern={{version}},value=v${{ inputs.version }}
+            type=raw,value=latest
+      # build and push container image
+      - uses: docker/build-push-action@v5
+        with:
+          push: true
+          context: docker/example/
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
