@@ -1,0 +1,21 @@
+name: Manual matrix
+on: push
+jobs:
+  print:
+    strategy:
+      # declare multi-dimension matrix
+      matrix:
+        # set the patterns manually
+        include:
+          # pattern 1
+          - os: ubuntu-latest
+            version: 20
+          # pattern 2
+          - os: macos-latest
+            version: 18
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+      - run: echo "${RUNNER_OS}" && node --version
