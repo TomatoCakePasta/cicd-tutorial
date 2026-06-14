@@ -1,5 +1,6 @@
 name: Add mask
-on: push
+# on: push
+on: workflow_dispatch
 jobs:
   log:
     runs-on: ubuntu-latest
