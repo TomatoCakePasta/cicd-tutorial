@@ -1,5 +1,5 @@
 name: Auto merge
-on: pull_request
+on: pull_requests
 jobs:
   merge:
     if: ${{ github.actor == 'dependabot[bot]' }}
