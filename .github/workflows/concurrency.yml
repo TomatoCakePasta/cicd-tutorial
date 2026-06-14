@@ -1,5 +1,8 @@
 name: Concurrency
-on: push
+# on: push
+on:
+  workflow_dispatch:
+
 # this workflow is used to test the concurrency feature of GitHub Actions
 concurrency: ${{ github.workflow }}
 jobs:

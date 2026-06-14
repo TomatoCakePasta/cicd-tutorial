@@ -1,0 +1,11 @@
+name: Bash tracing
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      # display the command logs with Bash tracing enabled
+      - run: | # enable Bash tracing "set -x"
+          set -x
+          date
+          hostname

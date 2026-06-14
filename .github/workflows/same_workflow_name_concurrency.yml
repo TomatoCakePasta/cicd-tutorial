@@ -1,5 +1,7 @@
 name: Concurrency
-on: push
+# on: push
+on:
+  workflow_dispatch:
 jobs:
   hello:
     runs-on: ubuntu-latest
