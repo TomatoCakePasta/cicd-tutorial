@@ -1,0 +1,23 @@
+name: Sequential jobs
+on: push
+jobs:
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10 && echo "First job"
+  
+  # run after first job
+  second:
+    runs-on: ubuntu-latest
+    # specify the ID of the dependent job
+    needs: [first]
+    steps:
+      - run: sleep 10 && echo "Second job"
+
+  # run after second job
+  third:
+    runs-on: ubuntu-latest
+    # specify the ID of the dependent job
+    needs: [second]
+    steps:
+      - run: sleep 10 && echo "Third job"

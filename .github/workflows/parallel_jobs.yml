@@ -1,5 +1,6 @@
 name: Parallel jobs
-on: push
+# on: push
+on: workflow_dispatch
 # declare multiple jobs
 jobs:
   first:
