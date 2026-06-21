@@ -1,0 +1,12 @@
+name: Continue on Error
+on: push
+jobs:
+  failure:
+    runs-on: ubuntu-latest
+    steps:
+      # An error occurs because the exit status is not 0
+      - run: exit 1
+        # pass error
+        continue-on-error: true
+        # exit workflow as successed
+      - run: echo "Success"

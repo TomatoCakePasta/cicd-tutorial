@@ -1,8 +1,10 @@
 name: Convert
-on: push
+# on: push
+on: workflow_dispatch
 env:
   TIMEOUT: 1
 jobs:
+  # this job is error, because sleep 120 is overing timeout 1 minute
   sleep:
     runs-on: ubuntu-latest
     steps:
