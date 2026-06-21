@@ -1,6 +1,6 @@
 name: Fail-fast disable matrix
 # on: push
-on: workflow_matrix
+on: workflow_dispatch
 jobs:
   run:
     runs-on: ubuntu-latest
