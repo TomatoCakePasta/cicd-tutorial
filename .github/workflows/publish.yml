@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # login to container registry
-      - uses: docker/login-action@v3
+      - uses: docker/login-action@v4
         with:
           # host name of container registry
           registry: ghcr.io
