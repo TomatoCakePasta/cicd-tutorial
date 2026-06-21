@@ -1,5 +1,6 @@
 name: Flow control
-on: push
+# on: push
+on: workflow_dispatch
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -10,3 +11,6 @@ jobs:
       - run: echo "Catch error step"
         # If failure() is omitted, success() is implicitly assumed to exist.
         if: ${{ failure() && steps.error.outcome == 'failure' }}
+
+        # ${{ steps.error.outcome == 'failure' }} 
+        # is assumed to ${{ success() && steps.error.outcome == 'failure' }}
