@@ -14,7 +14,7 @@ jobs:
       # get meta data of dependency
       - id: meta
         # check patch version
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@v3
       - if: ${{ steps.meta.outputs.update-type == 'version-update:semver-patch' }}
         run: |
           gh pr review "${GITHUB_HEAD_REF}" --approve
