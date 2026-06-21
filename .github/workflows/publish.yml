@@ -35,7 +35,7 @@ jobs:
             type=semver,pattern={{version}},value=v${{ inputs.version }}
             type=raw,value=latest
       # build and push container image
-      - uses: docker/build-push-action@v5
+      - uses: docker/build-push-action@v7
         with:
           push: true
           context: docker/example/
