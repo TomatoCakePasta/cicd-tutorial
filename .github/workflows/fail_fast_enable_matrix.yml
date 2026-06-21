@@ -1,12 +1,9 @@
-name: Fail-fast disable matrix
-# on: push
-on: workflow_matrix
+name: Fail-fast enable matrix
+on: push
 jobs:
   run:
     runs-on: ubuntu-latest
     strategy:
-      # disable matrix fail fast
-      fail-fast: false
       matrix:
         # sleep each process at a different time
         time: [10, 20, 30]
